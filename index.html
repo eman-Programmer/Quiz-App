@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="QuizMaster - The ultimate trivia challenge."
+    />
+    <title>QuizMaster</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="./images/favicon.png" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+
+  <body>
+    <main class="app-container" role="main">
+      <header class="logo-container">
+        <h1 class="logo"><i class="fa-solid fa-brain"></i> QuizMaster</h1>
+        <p class="logo-tagline">Test Your Knowledge</p>
+      </header>
+
+      <!-- ============================================ -->
+      <!-- QUIZ SETUP FORM - Starting screen -->
+      <!-- This is the first view users see -->
+      <!-- ============================================ -->
+      <form class="game-card quiz-setup" id="quizOptions">
+        <!-- Player Name Input -->
+        <div class="form-group">
+          <label class="form-label" for="playerName">
+            <i class="fa-solid fa-user"></i> Player Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="playerName"
+            placeholder="Enter your name"
+            maxlength="20"
+          />
+        </div>
+
+        <!-- Category Select -->
+        <div class="form-group">
+          <label class="form-label">
+            <i class="fa-solid fa-layer-group"></i> Select Category
+          </label>
+          <div class="custom-select" id="categorySelect" data-value="">
+            <div class="custom-select-trigger">
+              <span class="custom-select-icon"
+                ><i class="fa-solid fa-shuffle"></i
+              ></span>
+              <span class="custom-select-text">Random Category</span>
+              <span class="custom-select-arrow"
+                ><i class="fa-solid fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="custom-select-options">
+              <div class="custom-select-option" data-value="">
+                <i class="fa-solid fa-shuffle"></i> Random Category
+              </div>
+              <div class="custom-select-option" data-value="9">
+                <i class="fa-solid fa-brain"></i> General Knowledge
+              </div>
+              <div class="custom-select-option" data-value="18">
+                <i class="fa-solid fa-laptop-code"></i> Computers
+              </div>
+              <div class="custom-select-option" data-value="21">
+                <i class="fa-solid fa-futbol"></i> Sports
+              </div>
+              <div class="custom-select-option" data-value="23">
+                <i class="fa-solid fa-landmark"></i> History
+              </div>
+              <div class="custom-select-option" data-value="17">
+                <i class="fa-solid fa-flask"></i> Science
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="categoryMenu" name="category" value="" />
+        </div>
+
+        <!-- Difficulty Select -->
+        <div class="form-group">
+          <label class="form-label">
+            <i class="fa-solid fa-gauge-high"></i> Difficulty Level
+          </label>
+          <div class="custom-select" id="difficultySelect" data-value="easy">
+            <div class="custom-select-trigger">
+              <span class="custom-select-icon"
+                ><i class="fa-solid fa-face-smile"></i
+              ></span>
+              <span class="custom-select-text">Easy Mode</span>
+              <span class="custom-select-arrow"
+                ><i class="fa-solid fa-chevron-down"></i
+              ></span>
+            </div>
+            <div class="custom-select-options">
+              <div class="custom-select-option selected" data-value="easy">
+                <i class="fa-solid fa-face-smile"></i> Easy Mode
+              </div>
+              <div class="custom-select-option" data-value="medium">
+                <i class="fa-solid fa-face-meh"></i> Medium Mode
+              </div>
+              <div class="custom-select-option" data-value="hard">
+                <i class="fa-solid fa-skull"></i> Hard Mode
+              </div>
+            </div>
+          </div>
+          <input
+            type="hidden"
+            id="difficultyOptions"
+            name="difficulty"
+            value="easy"
+          />
+        </div>
+
+        <!-- Number of Questions -->
+        <div class="form-group">
+          <label class="form-label" for="questionsNumber">
+            <i class="fa-solid fa-bolt"></i> Number of Questions
+          </label>
+          <div class="number-input-wrapper">
+            <input
+              type="number"
+              class="form-control"
+              id="questionsNumber"
+              placeholder="Enter 1-50"
+              min="1"
+              max="50"
+              value="10"
+            />
+            <div class="number-controls">
+              <button type="button" class="number-btn" data-action="increment">
+                <i class="fa-solid fa-chevron-up"></i>
+              </button>
+              <button type="button" class="number-btn" data-action="decrement">
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Button -->
+        <button type="button" class="btn-play" id="startQuiz">
+          <i class="fa-solid fa-play"></i> Start Game
+        </button>
+      </form>
+
+    
+    </main>
+
+   
+        
+    <div class="game-card question-card hidden">
+    
+    </div>
+    
+
+    
+    
+    <div class="game-card results-card hidden">
+   
+    </div>
+    
+
+
+
+    <!-- UI Controls (custom selects work automatically) -->
+    <script src="./js/ui-controls.js"></script>
+
+    <!-- Your JavaScript Files -->
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>
